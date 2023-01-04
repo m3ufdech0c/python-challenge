@@ -5,7 +5,7 @@ from statistics import mean
 # Create a path to the PyBank csv file
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-# Reads in the CSV for PyBank and stores the header row
+# Reads in the CSV for PyBank, stores the header row and skips it
 with open(csvpath) as csvpybank:
     csvreader = csv.reader(csvpybank, delimiter=',')
     csv_header = next(csvreader)
