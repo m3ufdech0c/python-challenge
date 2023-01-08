@@ -16,6 +16,7 @@ with open(csvpath) as csvpybank:
     pnl = []
     losses = []
     change = []
+
     # Initializing variable 'previous' to be used for computing changes withing the 'PnL' list
     previous = 0 
     isfirstrow = True
@@ -51,17 +52,32 @@ with open(csvpath) as csvpybank:
 
         isfirstrow = False
       
-    # This could have been used to create the 'Change' but did not want another loop
-    #for i in range(1, len(pnl)):
-        #value = pnl[i] - pnl[i - 1]
-        #change.append(value)
+    # Creating variables to be commonly used between print and text file writing
+    title = "Financial Analysis"
+    months = f"Total Months: {len(month)}"
+    total = f"Total: ${sum(pnl)}"
+    avgchange = f"Average Change: ${round(mean(change), 2)}"
+    maxchange = f"Greatest Increase in Profits: {maxchangedate} (${maxchange})"
+    minchange = f"Greatest Decrease in Profits: {minchangedate} (${minchange})"
     
-    print("Financial Analysis")
+    print(title)
 
     print("------------------------------------------------------")
 
-    print(f"Total Months: {len(month)}")
-    print(f"Total: ${sum(pnl)}")
-    print(f"Average Change: ${round(mean(change), 2)}")
-    print(f"Greatest Increase in Profits: {maxchangedate} (${maxchange})")   
-    print(f"Greatest Decrease in Profits: {minchangedate} (${minchange})") 
+    print(months)
+    print(total)
+    print(avgchange)
+    print(maxchange)   
+    print(minchange) 
+
+    # Set variable for output file and open it in write mode
+    output_file = open("Analysis/main_pybank.txt","w")
+
+    # Store some of the text lines inside a variable called "L"
+    L = [months + "\n", total + "\n", avgchange + "\n", maxchange +"\n", minchange + "\n"]
+    
+    # priting lines on the file
+    output_file.write(title + "\n")
+    output_file.write("-------------------------------------------- \n")
+    output_file.writelines(L)
+    output_file.close()
