@@ -15,9 +15,9 @@ While doing the above, we are using 2 'If' statements (indented within the 1st o
 1- look for the highest positive change and store it in the variable 'maxchange, while reading the associated date and stores it in the 'maxchangedate' variable, or
 2- look for the highest negative change and store it in the variable 'minchange, while reading the associated date and stores it in the 'minchangedate' variable
 
-=======================================================================================
+==================================================
 PyPoll
-=======================================================================================
+==================================================
 Upon importing the dependencies and establishing the path the relative file,
 The script first reads into the file and stores the csv file header row into a variable named 'csv_header'. The script will skip this header row anytime rows are called.
 
