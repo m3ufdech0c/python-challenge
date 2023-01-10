@@ -47,9 +47,9 @@ with open(csvpath) as csvpybank:
                 minchangedate = row[0]
 
     
-
+        # After each loop the variable 'previous' will take on the value of the 'Profit/Losses' in the previous row 
         previous = int(row[1])
-
+        # Reassigning 'False' value to the variable 'isfirstrow' to include the remaining rows in computing the change
         isfirstrow = False
       
     # Creating variables to be commonly used between print and text file writing
@@ -60,10 +60,9 @@ with open(csvpath) as csvpybank:
     maxchange = f"Greatest Increase in Profits: {maxchangedate} (${maxchange})"
     minchange = f"Greatest Decrease in Profits: {minchangedate} (${minchange})"
     
+    #printing analysis lines
     print(title)
-
     print("------------------------------------------------------")
-
     print(months)
     print(total)
     print(avgchange)
